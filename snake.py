@@ -11,7 +11,7 @@ class Snake:
   def __init__(self):
     self.segments = []
     self.create_snake()
-    self.last_position = (-40, 0)
+    # self.last_position = (-40, 0)
     
     
     
@@ -38,6 +38,12 @@ class Snake:
       self.segments[i].goto(x, y)
 
     self.head.forward(10)
+
+  def reset(self):
+    for seg in self.segments:
+      seg.goto(1000, 1000)
+    self.segments.clear()
+    self.create_snake()
 
   def up(self):
     if self.head.heading() != DOWN:

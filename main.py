@@ -38,13 +38,13 @@ while game_is_on:
 
 
   if snake.head.xcor() in WALL_POSITIONS or snake.head.ycor() in WALL_POSITIONS:
-    scoreboard.game_over()  
-    game_is_on = False
+    snake.reset()
+    scoreboard.reset()
 
   for segment in snake.segments[1:]:
     if snake.head.distance(segment) < 10:
-      scoreboard.game_over()  
-      game_is_on = False
+      snake.reset()
+      scoreboard.reset()
     
 
 screen.exitonclick()
